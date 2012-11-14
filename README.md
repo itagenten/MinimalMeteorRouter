@@ -9,7 +9,12 @@ It would be even nicer to parse the beginning of the URL (for a protocol specifi
 
 Client-side routing consists of two parts:
 
-1. Navigating to the correct page when entering a URL in the URL bar (or visiting a bookmark the user had saved earlier)
+1. Navigating to the correct page when entering a URL in the URL bar (or visiting a bookmark the user had saved earlier). The Backbone router has some sensible defaults here.
 
-2. Loading the correct template w/o reloading the whole page (especially, that is, without loading the huge javascript blob that Meteor delivers on the first hit). Without this, the whole "single page" aspect is kinda lost, isn't it.
+2. Loading the correct template w/o reloading the whole page (especially, that is, without loading the huge javascript blob that Meteor delivers on the first hit). Without this, the whole "single page" aspect is kinda lost, isn't it. We do this by invoking the Backbone router in our event handling code (see the `Router.navigate()` call in `view.js`).
+
+Have a lot of fun!
+
+Florian
+
 
