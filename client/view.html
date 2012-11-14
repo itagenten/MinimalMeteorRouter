@@ -1,0 +1,27 @@
+<head>
+    <title>MinimalMeteorRouter</title>
+</head>
+
+<body>
+    <h1>Lame banner text</h1>
+    {{> content}}
+</body>
+
+<template name="content">
+    {{render currentPage}}
+</template>
+
+<template name="hello">
+    <!-- Super duper first page -->
+    <p><a href="/goodbye">Hello</a> "internal" link ("single page")</p>
+
+    <p><a href="http://www.meteor.com/">(Broken) External link, no 'link-external' class</a> Nothing happens because of the preventDefault().</p>
+</template>
+
+<template name="goodbye">
+    <!-- Second page, awesome -->
+    <p><a href="/hello">Goodbye</a> "internal" link back.</p>
+
+    <p><a class="link-external" href="http://www.meteor.com/">Link with 'link-external' class</a> Not handled by backbone router, will leave the current web app instance.</p>
+</template>
+
