@@ -4,24 +4,20 @@
 
 <body>
     <h1>Lame banner text</h1>
-    {{> content}}
-</body>
-
-<template name="content">
     {{render currentPage}}
-</template>
+</body>
 
 <template name="hello">
     <!-- Super duper first page -->
     <p><a href="/goodbye">Hello</a> "internal" link ("single page")</p>
 
-    <p><a href="http://www.meteor.com/">(Broken) External link, no 'link-external' class</a> Nothing happens because of the preventDefault().</p>
+    <p><a href="http://www.meteor.com/">External link, no 'link-external' class</a> Will be followed as usual due to href doesn't start with our base URL</p>
 </template>
 
 <template name="goodbye">
     <!-- Second page, awesome -->
     <p><a href="/hello">Goodbye</a> "internal" link back.</p>
 
-    <p><a class="link-external" href="http://www.meteor.com/">Link with 'link-external' class</a> Not handled by backbone router, will leave the current web app instance.</p>
+    <p><a class="link-external" href="/dead-end">External link with 'link-external' class</a> Not handled by backbone router, will leave the current web app instance/pop new window regardless of href attribute.</p>
 </template>
 
